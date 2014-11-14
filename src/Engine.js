@@ -179,4 +179,38 @@ var Engine = function () {
         return count;
     };
 
+    this.p1win = function () {
+        var nbBlack = 0;
+        var nbRed = 0;
+        var nbBlue = 0;
+        var nbYellow = 0;
+        var nbGreen = 0;
+        var nbWhite = 0;
+
+        for(i = 0; i < p1NbPieces ; i++){
+            if(p1Pieces[i] == "Black"){
+                nbBlack ++;
+            }
+            if(p1Pieces[i] == "Blue"){
+                nbBlue ++;
+            }
+            if(p1Pieces[i] == "Green"){
+                nbGreen ++;
+            }
+            if(p1Pieces[i] == "Red"){
+                nbRed ++;
+            }
+            if(p1Pieces[i] == "Yellow"){
+                nbYellow ++;
+            }
+            if(p1Pieces[i] == "White"){
+                nbWhite ++;
+            }
+        }
+
+        if(nbBlack == 6 || nbBlue == 6 || nbGreen == 6 || nbRed == 6 || nbWhite == 6 || nbYellow ==6){
+            return "player 1";
+        }
+    };
+
 }
