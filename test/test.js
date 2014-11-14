@@ -8,3 +8,9 @@ PalettoTestCase.prototype.testStory1 = function () {
     assertEquals(e.juxtapositionOK(), true);
 
 };
+
+PalettoTestCase.prototype.testStory2 = function () {
+    var e = new Engine();
+    e.initialisation();
+    assertEquals(e.selectColor("a6"), "Yellow");
+};
