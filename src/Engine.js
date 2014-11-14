@@ -3,11 +3,18 @@
 var Engine = function () {
 
 // private attributes and methods
-    var i, j;
+    var i, j, count;
     var board = new Array(6);
     for (i = 0; i < 6; i++) {
         board[i] = new Array(6);
     }
+
+    var p1Pieces = new Array(36);
+    for (i = 0; i < 36; i++) {
+        p1Pieces[i] = "";
+    }
+
+    var p1NbPieces = 0;
 
     var charcodeA = parseInt("a".charCodeAt(0), 0);
 
@@ -107,8 +114,39 @@ var Engine = function () {
         return board[line][column];
     };
 
+    this.p1TakePiece = function (position) {
+        var line, column;
+        line = parseInt(position.charAt(1), 0) - 1;
+        column = parseInt(position.charCodeAt(0), 0) - charcodeA;
 
+        p1Pieces[p1NbPieces] = board[line][column];
+        board[line][column] = "";
 
+        p1NbPieces++;
 
+        return board[line][column];
+    };
+
+    this.PiecesOnBoard = function () {
+        count = 0;
+        for (i = 0; i < 6; i++) {
+            for (j = 0; j < 6; j++) {
+                if (board[i][j] != "") {
+                    count++;
+                }
+            }
+        }
+        return count;
+    };
+
+    this.p1NbPieces = function () {
+        var count = 0;
+        for (i = 0; i < 36; i++) {
+            if (p1Pieces[i] != "") {
+                count++;
+            }
+        }
+        return count;
+    };
 
 }
