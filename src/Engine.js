@@ -23,6 +23,8 @@ var Engine = function () {
 
     var p2NbPieces = 0;
 
+    var currentPlayer = "";
+
     var charcodeA = parseInt("a".charCodeAt(0), 0);
 
 // public methods
@@ -131,6 +133,8 @@ var Engine = function () {
 
         p1NbPieces++;
 
+        currentPlayer = "player 1";
+
         return board[line][column];
     };
 
@@ -165,6 +169,8 @@ var Engine = function () {
         board[line][column] = "";
 
         p2NbPieces++;
+
+        currentPlayer = "player 2";
 
         return board[line][column];
     };
@@ -213,4 +219,10 @@ var Engine = function () {
         }
     };
 
-}
+    this.winnerByEmptyBoard = function () {
+        if(this.PiecesOnBoard() == 0){
+            return currentPlayer;
+        }
+    };
+
+};
