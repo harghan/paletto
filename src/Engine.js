@@ -9,6 +9,8 @@ var Engine = function () {
         board[i] = new Array(6);
     }
 
+    var charcodeA = parseInt("a".charCodeAt(0), 0);
+
 // public methods
     this.putRed = function () {
         board[0][4] = "Red";
@@ -96,4 +98,17 @@ var Engine = function () {
         this.putYellow();
         this.putBlue();
     };
+
+    this.selectColor = function (position) {
+        var line, column;
+        line = parseInt(position.charAt(1), 0) - 1;
+        column = parseInt(position.charCodeAt(0), 0) - charcodeA;
+
+        return board[line][column];
+    };
+
+
+
+
+
 }
